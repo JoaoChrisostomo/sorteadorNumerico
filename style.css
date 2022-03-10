@@ -12,16 +12,25 @@ body {
     text-align: center;
     padding: 20px;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .page-title {
     color: #ffffff;
     margin: 0 0 5px;
+    font-size: 2.5rem;
+    font-weight: bold;
   }
   
   .page-subtitle {
     color: #ffffff;
     margin-top: 16px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .page-logo {
@@ -45,6 +54,8 @@ body {
     margin: 4px;
     padding: 6px;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 10%;
   }
   
   button {
@@ -52,11 +63,33 @@ body {
     padding: 4px 8px;
     border-radius: 10px;
     background: #ffffff;
+    border: 1px solid #ccc;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  button:hover{
+    background: rgb(218, 40, 40);
+    transform: scale(1.1);
+    
   }
   
   .resultado {
     color: #ffffff;
     text-align: center;
     margin-top: 16px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  footer, span{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
   }
   

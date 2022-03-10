@@ -1,19 +1,27 @@
 const numeroSecreto = parseInt(Math.random() * 11); // Pega um numero aleatorio de 0 a 11
+let maximoTentativas = 3; // Define o numero maximo de tentativas
+let numeroTentativas = 1;
 
 function Chutar() { // Função que chuta o dado
-  const elementoResultado = document.getElementById("resultado"); // Pega o elemento resultado
-  const chute = parseInt(document.getElementById("valor").value); // Pega o valor do input
-  console.log(chute); // Mostra o valor do input
-    if (chute == numeroSecreto) { // Se o valor do input for igual ao numero secreto
-        elementoResultado.innerHTML = "Você acertou!"; // Mostra a mensagem de acerto
+    let numeroTentativasAtuais = maximoTentativas - numeroTentativas; // Define o numero de tentativas
+    let resultado = document.getElementById("resultado"); // Pega o elemento resultado
+    let chute = parseInt(document.getElementById("valor").value); // Pega o valor do input
+    console.log(chute);
 
-    } else if (chute > 10 || chute < 0) { // Se o valor do input for maior que a condição ou menor que a condição
-        elementoResultado.innerHTML = "Você deve digitar um número de 0 a 10" // Mostra que errou e que o valor deve ser de 0 a 10
+    if (numeroTentativas <= maximoTentativas) { // Verifica se o numero de tentativas é menor ou igual ao maximo
+        if (chute > 10 || chute < 0) { // Verifica se o valor do input é maior que 10 ou menor que 0
+            resultado.innerHTML = "Você deve digitar um número de 0 a 10"; // Exibe mensagem de erro
+        }
+        else if (chute == numeroSecreto) { // Verifica se o valor do input é igual ao numero secreto
+            resultado.innerHTML = "Você acertou!"; // Exibe mensagem de acerto
 
-    } else { // Se não
-        elementoResultado.innerHTML = "Errou, o número secreto era " + numeroSecreto; // Mostra que errou e o numero secreto
+        } else if (numeroTentativasAtuais === 0 ) { // Verifica se o numero de tentativas é igual a 0
+            resultado.innerHTML = "Você excedeu o numero de tentativas!"; // Exibe mensagem de erro
+            numeroTentativas = 1;
+            numeroSecreto = parseInt(Math.random() * 11);
+        } else { // Se não for nenhum dos casos acima
+            numeroTentativas++; // Incrementa o numero de tentativas
+            resultado.innerHTML = `Você errou! você ainda tem  ${numeroTentativasAtuais}`; // Exibe mensagem de erro
+        }
     }
-    if (chute < 0 || chute > 10) { // Se o valor do input for menor que o numero secreto
-        elementoResultado.innerHTML += "O valor sorteado é menor"; // Mostra que é menor
-    }
-}
+} 

@@ -24,4 +24,5 @@ function Chutar() { // Função que chuta o dado
             resultado.innerHTML = `Você errou! você ainda tem  ${numeroTentativasAtuais}`; // Exibe mensagem de erro
         }
     }
-} 
+}
+
